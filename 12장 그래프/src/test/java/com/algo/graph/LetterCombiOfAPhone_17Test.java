@@ -32,4 +32,17 @@ class LetterCombiOfAPhone_17Test {
         // Then
         assertThat(result).containsExactly("ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf");
     }
+
+    @Test
+    void test_kt() throws Exception {
+        // Given
+        String input = "23";
+        LeetCode17 sut = new LeetCode17(map);
+
+        // When
+        List<String> result = sut.solution(input);
+
+        // Then
+        assertThat(result).containsExactly("ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf");
+    }
 }
