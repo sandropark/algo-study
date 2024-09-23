@@ -18,10 +18,16 @@ public class LeetCode46_순열 {
         }
 
         for (int num : numList) {
-            List<Integer> nextEs = new ArrayList<>(numList);
-            nextEs.remove(Integer.valueOf(num));
             arr[index] = num;
-            dfs(nextEs, index + 1, arr, result);
+            dfs(getNextEs(numList, num), index + 1, arr, result);
         }
+    }
+
+    private static List<Integer> getNextEs(List<Integer> numList, int num) {
+        if (numList.size() == 1)
+            return null;
+        List<Integer> nextEs = new ArrayList<>(numList);
+        nextEs.remove(Integer.valueOf(num));
+        return nextEs;
     }
 }
