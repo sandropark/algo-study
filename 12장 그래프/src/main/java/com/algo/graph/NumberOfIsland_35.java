@@ -8,16 +8,15 @@ public class NumberOfIsland_35 {
         int count = 0;
         int m = grid.length, n = grid[0].length;
         Deque<Location> stack = new ArrayDeque<>();
-        boolean[][] visitedArr = new boolean[m][n];
 
         int[] x = {0, 0, -1, 1};
         int[] y = {-1, 1, 0, 0};
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (!visitedArr[i][j] && grid[i][j] == '1') {
+                if (grid[i][j] == '1') {
                     stack.add(new Location(i, j));
-                    visitedArr[i][j] = true;
+                    grid[i][j] = 'v';
                     count++;
                     while (!stack.isEmpty()) {
                         Location temp = stack.pop();
@@ -28,9 +27,9 @@ public class NumberOfIsland_35 {
 
                             if (a < 0 || a >= m || b < 0 || b >= n)
                                 continue;
-                            if (!visitedArr[a][b] && grid[a][b] == '1') {
+                            if (grid[a][b] == '1') {
                                 stack.add(new Location(a, b));
-                                visitedArr[a][b] = true;
+                                grid[a][b] = 'v';
                             }
                         }
                     }
