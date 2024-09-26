@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LeetCode77_조합 {
+    // n = 범위의 마지막 숫자 (1 ~ n)
+    // k = 조합할 숫자의 개수
     public static List<List<Integer>> solution(int n, int k) {
         List<List<Integer>> result = new ArrayList<>();
         dfs(n, k, 1, new int[k], result);
@@ -17,6 +19,7 @@ public class LeetCode77_조합 {
         }
 
         for (int i = start; i <= n; i++) {
+            // k는 1씩 감소하기 때문에 path[0]부터 k까지 숫자를 채워넣는다.
             path[path.length - k] = i;
             dfs(n, k - 1, i + 1, path, result);
         }
