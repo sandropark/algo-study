@@ -1,12 +1,10 @@
 package com.algo.graph.leetcode_35
 
 fun solution(grid: Array<CharArray>): Int {
-    val n = grid.size
-    val m = grid[0].size
     var count = 0
 
     fun dfs(rowIndex: Int, colIndex: Int): Boolean {
-        if (rowIndex < 0 || rowIndex >= n || colIndex < 0 || colIndex >= m) return false
+        if (rowIndex < 0 || rowIndex >= grid.size || colIndex < 0 || colIndex >= grid[0].size) return false
         if (grid[rowIndex][colIndex] != '1') return false
         grid[rowIndex][colIndex] = 'v'
         dfs(rowIndex - 1, colIndex)
