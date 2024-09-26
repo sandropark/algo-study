@@ -1,4 +1,4 @@
-package com.algo.graph;
+package com.algo.graph.leetcode_35;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

@@ -1,4 +1,4 @@
-package com.algo.graph;
+package com.algo.graph.leetcode_35;
 
 import org.junit.jupiter.api.Test;
 
@@ -21,15 +21,29 @@ public class NumberOfIsland_35Test {
 
     @Test
     void test1() throws Exception {
-        int solution = NumberOfIsland_35.solution(grid1);
+        int result = NumberOfIsland_35.solution(grid1);
 
-        assertThat(solution).isEqualTo(1);
+        assertThat(result).isEqualTo(1);
     }
 
     @Test
     void test2() throws Exception {
-        int solution = NumberOfIsland_35.solution(grid2);
+        int result = NumberOfIsland_35.solution(grid2);
 
-        assertThat(solution).isEqualTo(3);
+        assertThat(result).isEqualTo(3);
+    }
+
+    @Test
+    void testKt() throws Exception {
+        int result = LeetCode35Kt.solution(grid1);
+
+        assertThat(result).isEqualTo(1);
+    }
+
+    @Test
+    void testKt2() throws Exception {
+        int result = LeetCode35Kt.solution(grid2);
+
+        assertThat(result).isEqualTo(3);
     }
 }
