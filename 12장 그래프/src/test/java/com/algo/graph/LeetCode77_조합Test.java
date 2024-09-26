@@ -1,5 +1,6 @@
 package com.algo.graph;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -7,6 +8,8 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class LeetCode77_조합Test {
+
+    @DisplayName("1부터 n까지 k개의 숫자를 조합한 결과를 반환한다.")
     @Test
     void test() throws Exception {
         // Given
