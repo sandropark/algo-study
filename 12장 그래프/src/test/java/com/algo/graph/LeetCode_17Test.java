@@ -1,5 +1,7 @@
 package com.algo.graph;
 
+import com.algo.graph.leetcode_17.LeetCode17;
+import com.algo.graph.leetcode_17.LeetCode_17;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -8,7 +10,7 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class LetterCombiOfAPhone_17Test {
+class LeetCode_17Test {
     Map<Character, List<Character>> map = Map.of(
             '2', List.of('a', 'b', 'c'),
             '3', List.of('d', 'e', 'f'),
@@ -24,7 +26,7 @@ class LetterCombiOfAPhone_17Test {
         // Given
         String input = "23";
         List<String> result = new ArrayList<>();
-        LetterCombiOfAPhone_17 sut = new LetterCombiOfAPhone_17(map);
+        LeetCode_17 sut = new LeetCode_17(map);
 
         // When
         sut.solution(input, result, 0, new StringBuilder());

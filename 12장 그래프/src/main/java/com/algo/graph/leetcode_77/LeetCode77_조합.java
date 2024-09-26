@@ -1,4 +1,4 @@
-package com.algo.graph;
+package com.algo.graph.leetcode_77;
 
 import java.util.ArrayList;
 import java.util.List;

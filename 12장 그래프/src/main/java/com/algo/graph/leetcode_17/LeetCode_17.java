@@ -1,4 +1,4 @@
-package com.algo.graph;
+package com.algo.graph.leetcode_17;
 
 import lombok.RequiredArgsConstructor;
 
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 @RequiredArgsConstructor
-public class LetterCombiOfAPhone_17 {
+public class LeetCode_17 {
     private final Map<Character, List<Character>> map;
 
     public void solution(String input, List<String> result, int index, StringBuilder path) {

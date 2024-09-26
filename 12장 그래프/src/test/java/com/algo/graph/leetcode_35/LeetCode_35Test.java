@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class NumberOfIsland_35Test {
+public class LeetCode_35Test {
     char[][] grid1 = {
             {'1', '1', '1', '1', '0'},
             {'1', '1', '0', '1', '0'},
@@ -21,14 +21,14 @@ public class NumberOfIsland_35Test {
 
     @Test
     void test1() throws Exception {
-        int result = NumberOfIsland_35.solution(grid1);
+        int result = LeetCode35.solution(grid1);
 
         assertThat(result).isEqualTo(1);
     }
 
     @Test
     void test2() throws Exception {
-        int result = NumberOfIsland_35.solution(grid2);
+        int result = LeetCode35.solution(grid2);
 
         assertThat(result).isEqualTo(3);
     }

@@ -3,7 +3,7 @@ package com.algo.graph.leetcode_35;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public class NumberOfIsland_35 {
+public class LeetCode35 {
     public static int solution(char[][] grid) {
         int count = 0;
         int m = grid.length, n = grid[0].length;
