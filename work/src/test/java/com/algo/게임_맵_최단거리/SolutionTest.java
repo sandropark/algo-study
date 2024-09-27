@@ -1,5 +1,6 @@
 package com.algo.게임_맵_최단거리;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -121,6 +122,25 @@ class SolutionTest {
 
         // Then
         assertThat(result).isEqualTo(2);
+    }
+
+    @DisplayName("중간에 길이 끊긴 경우")
+    @Test
+    void test10() throws Exception {
+        // Given
+        int[][] maps = new int[][]{
+                {1, 0, 1, 1, 1},
+                {1, 0, 1, 0, 1},
+                {1, 0, 1, 1, 0},
+                {1, 1, 1, 0, 1},
+                {0, 0, 0, 0, 1}};
+        Solution solution = new Solution();
+
+        // When
+        int result = solution.solution(maps);
+
+        // Then
+        assertThat(result).isEqualTo(-1);
     }
 
 }
