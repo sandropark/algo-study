@@ -21,14 +21,18 @@ public class Prog_괄호변환 {
             // 3. 앞,뒤 개수가 같아지면 문자열 분리
             if (openCount == closeCount) {
                 String u = s.substring(0, i + 1);
+                String w = s.substring(i + 1);
+
                 if (isCorrect(u)) {
                     sb.append(u);
-                    rec(s.substring(i + 1), sb);
-                } else {
-                    sb.append("(");
-                    rec(s.substring(i + 1), sb);
-                    sb.append(")").append(processU(u));
+                    rec(w, sb);
+                    // u, w 분리 후에는 재귀호출하면 되고 더 이상 반복문을 진행하면 안되기 때문에 반환.
+                    return;
                 }
+
+                sb.append("(");
+                rec(w, sb);
+                sb.append(")").append(processU(u));
                 // u, w 분리 후에는 재귀호출하면 되고 더 이상 반복문을 진행하면 안되기 때문에 반환.
                 return;
             }
