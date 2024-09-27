@@ -73,4 +73,40 @@ class Prog_괄호변환Test {
                 Arguments.of("))((", "()")
         );
     }
+
+    @Test
+    void test_kt() throws Exception {
+        // Given
+        String p = "(()())()";
+
+        // When
+        String result = Prog_괄호변환Kt.solution(p);
+
+        // Then
+        assertThat(result).isEqualTo("(()())()");
+    }
+
+    @Test
+    void test2_kt() throws Exception {
+        // Given
+        String p = ")(";
+
+        // When
+        String result = Prog_괄호변환Kt.solution(p);
+
+        // Then
+        assertThat(result).isEqualTo("()");
+    }
+
+    @Test
+    void test3_kt() throws Exception {
+        // Given
+        String p = "()))((()";
+
+        // When
+        String result = Prog_괄호변환Kt.solution(p);
+
+        // Then
+        assertThat(result).isEqualTo("()(())()");
+    }
 }
