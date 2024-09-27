@@ -10,19 +10,15 @@ public class Solution {
     public int solution(int[][] maps) {
         int n = maps.length, m = maps[0].length;
 
-        // 행이 하나뿐인 경우
-        if (n == 1 && m >= 3 && maps[0][m - 2] == 0) return -1;
-        // 열이 하나뿐인 경우
-        if (m == 1 && n >= 3 && maps[n - 2][0] == 0) return -1;
         // n,m의 위와 왼쪽이 막혀있는 경우
         if (n > 2 && m > 2 && maps[n - 2][m - 1] == 0 && maps[n - 1][m - 2] == 0) return -1;
 
-        bfs(maps);
-
-        return maps[n - 1][m - 1];
+        if (bfs(maps))
+            return maps[n - 1][m - 1];
+        return -1;
     }
 
-    private static void bfs(int[][] maps) {
+    private static boolean bfs(int[][] maps) {
         int n = maps.length, m = maps[0].length;
         int x = 0, y = 0;
         LinkedList<Coor> q = new LinkedList<>();
@@ -31,6 +27,8 @@ public class Solution {
         while (!q.isEmpty()) {
             Coor temp = q.removeFirst();
             int tempScore = maps[temp.x][temp.y];
+            if (temp.x == n - 1 && temp.y == m - 1) // 마지막에 도달한 경우
+                return true;
             for (int i = 0; i < 4; i++) {
                 int newX = temp.x + dx[i];
                 int newY = temp.y + dy[i];
@@ -42,6 +40,7 @@ public class Solution {
                 }
             }
         }
+        return false;   // 마지막에 도달하지 못한 경우
     }
 
     record Coor(int x, int y) {
