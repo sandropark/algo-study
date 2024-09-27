@@ -1,4 +1,4 @@
-package com.algo
+package com.algo.괄호변환
 
 fun solution(p: String): String {
     if (p.isEmpty()) return p

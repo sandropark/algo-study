@@ -1,4 +1,4 @@
-package com.algo;
+package com.algo.괄호변환;
 
 public class Prog_괄호변환 {
     public String solution(String p) {

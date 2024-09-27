@@ -1,4 +1,4 @@
-package com.algo;
+package com.algo.괄호변환;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
