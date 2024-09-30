@@ -1,7 +1,7 @@
 package com.algo.graph;
 
-import com.algo.graph.leetcode_17.LeetCode17;
-import com.algo.graph.leetcode_17.LeetCode_17;
+import com.algo.graph.w2_240926.leetcode_17.LeetCode17;
+import com.algo.graph.w2_240926.leetcode_17.LeetCode_17;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

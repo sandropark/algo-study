@@ -1,9 +1,12 @@
-package com.algo.graph.leetcode_39;
+package com.algo.graph.w3_241003.leetcode_39;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 릿코드 - 39.조합의 합
+ */
 public class LeetCode39 {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();

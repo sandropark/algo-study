@@ -1,4 +1,4 @@
-package com.algo.graph.leetcode_35
+package com.algo.graph.w2_240926.leetcode_35
 
 fun solution(grid: Array<CharArray>): Int {
     var count = 0

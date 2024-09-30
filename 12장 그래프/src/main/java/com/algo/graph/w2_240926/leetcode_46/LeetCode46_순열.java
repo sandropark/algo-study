@@ -1,4 +1,4 @@
-package com.algo.graph.leetcode_46;
+package com.algo.graph.w2_240926.leetcode_46;
 
 import java.util.ArrayList;
 import java.util.Arrays;

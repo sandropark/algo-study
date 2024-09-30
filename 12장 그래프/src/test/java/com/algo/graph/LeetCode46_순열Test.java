@@ -1,6 +1,6 @@
 package com.algo.graph;
 
-import com.algo.graph.leetcode_46.LeetCode46_순열;
+import com.algo.graph.w2_240926.leetcode_46.LeetCode46_순열;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

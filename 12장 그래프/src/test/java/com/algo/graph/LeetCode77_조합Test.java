@@ -1,6 +1,6 @@
 package com.algo.graph;
 
-import com.algo.graph.leetcode_77.LeetCode77_조합;
+import com.algo.graph.w2_240926.leetcode_77.LeetCode77_조합;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

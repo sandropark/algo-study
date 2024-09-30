@@ -1,4 +1,4 @@
-package com.algo.graph.leetcode_17
+package com.algo.graph.w2_240926.leetcode_17
 
 class LeetCode17(private val map: Map<Char, List<Char>>) {
     fun solution(input: String): List<String> {
