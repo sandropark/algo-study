@@ -17,12 +17,12 @@ public class LeetCode39 {
             return;
         }
 
-        if (tempResult > target) return;
-
         for (int i = 0; i < candidates.length; i++) {
+            int tempResult1 = tempResult + candidates[i];
+            if (tempResult1 > target) continue;
             path.add(index, candidates[i]);
             int[] newCandidates = Arrays.copyOfRange(candidates, i, candidates.length);
-            dfs(newCandidates, target, index + 1, path, tempResult + candidates[i], result);
+            dfs(newCandidates, target, index + 1, path, tempResult1, result);
             path.remove(index);
         }
     }
