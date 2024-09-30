@@ -34,4 +34,18 @@ class LeetCode39Test {
         // Then
         assertThat(result).containsExactly(List.of(2, 2, 2, 2), List.of(2, 3, 3), List.of(3, 5));
     }
+
+    @Test
+    void test3() throws Exception {
+        // Given
+        int[] candidates = {2, 3};
+        int target = 8;
+        LeetCode39 sut = new LeetCode39();
+
+        // When
+        List<List<Integer>> result = sut.combinationSum(candidates, target);
+
+        // Then
+        assertThat(result).containsExactly(List.of(2, 2, 2, 2), List.of(2, 3, 3));
+    }
 }
