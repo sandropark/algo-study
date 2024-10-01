@@ -1,4 +1,4 @@
-package com.algo.graph;
+package com.algo.graph.w2_240926;
 
 import com.algo.graph.w2_240926.leetcode_17.LeetCode17;
 import com.algo.graph.w2_240926.leetcode_17.LeetCode_17;

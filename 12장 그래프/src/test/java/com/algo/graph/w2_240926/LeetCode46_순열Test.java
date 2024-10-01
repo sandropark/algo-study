@@ -1,4 +1,4 @@
-package com.algo.graph;
+package com.algo.graph.w2_240926;
 
 import com.algo.graph.w2_240926.leetcode_46.LeetCode46_순열;
 import org.junit.jupiter.api.Test;

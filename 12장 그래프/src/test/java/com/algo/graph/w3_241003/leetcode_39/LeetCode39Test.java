@@ -1,6 +1,5 @@
-package com.algo.graph.leetcode_39;
+package com.algo.graph.w3_241003.leetcode_39;
 
-import com.algo.graph.w3_241003.leetcode_39.LeetCode39;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

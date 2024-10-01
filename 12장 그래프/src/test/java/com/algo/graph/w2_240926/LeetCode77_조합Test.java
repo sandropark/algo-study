@@ -1,4 +1,4 @@
-package com.algo.graph;
+package com.algo.graph.w2_240926;
 
 import com.algo.graph.w2_240926.leetcode_77.LeetCode77_조합;
 import org.junit.jupiter.api.DisplayName;
