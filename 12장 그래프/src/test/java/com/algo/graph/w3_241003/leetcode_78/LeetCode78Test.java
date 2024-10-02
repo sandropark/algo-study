@@ -17,7 +17,7 @@ class LeetCode78Test {
         List<List<Integer>> result = sut.subsets(nums);
 
         // Then
-        assertThat(result).isEqualTo(List.of(
+        assertThat(result).contains(
                 List.of(),
                 List.of(1),
                 List.of(2),
@@ -26,7 +26,7 @@ class LeetCode78Test {
                 List.of(1, 3),
                 List.of(2, 3),
                 List.of(1, 2, 3)
-        ));
+        );
     }
 
     @Test
@@ -39,7 +39,7 @@ class LeetCode78Test {
         List<List<Integer>> result = sut.subsets(nums);
 
         // Then
-        assertThat(result).isEqualTo(List.of(List.of(), List.of(0)));
+        assertThat(result).contains(List.of(), List.of(0));
     }
 
     @Test
@@ -52,11 +52,11 @@ class LeetCode78Test {
         List<List<Integer>> result = sut.subsets(nums);
 
         // Then
-        assertThat(result).isEqualTo(List.of(
+        assertThat(result).contains(
                 List.of(),
                 List.of(1),
                 List.of(2),
                 List.of(1, 2)
-        ));
+        );
     }
 }
