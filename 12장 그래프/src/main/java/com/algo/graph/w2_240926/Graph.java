@@ -1,4 +1,4 @@
-package com.algo.graph;
+package com.algo.graph.w2_240926;
 
 import lombok.AllArgsConstructor;
 
