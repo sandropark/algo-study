@@ -5,28 +5,29 @@ import java.util.*;
 public class LeetCode743_44 {
     public int networkDelayTime(int[][] times, int n, int k) {
         Map<Integer, List<int[]>> graph = makeGraph(n, times);
-        int[] costs = initCosts(n, k);
-        dfs(graph, costs, k);
+        Queue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[1]));
+        pq.offer(new int[]{k, 0});
+
+        int[] costs = initCosts(n);
+
+        while (!pq.isEmpty()) {
+            int[] node = pq.poll();
+            int from = node[0];
+            int cost = node[1];
+            if (costs[from - 1] == -1) {
+                costs[from - 1] = cost;
+                for (int[] edge : graph.get(from)) {
+                    int newCost = cost + edge[2];
+                    pq.offer(new int[]{edge[1], newCost});
+                }
+            }
+        }
         return findMax(costs);
     }
 
-    private static void dfs(Map<Integer, List<int[]>> graph, int[] costs, int from) {
-        List<int[]> nextEdges = graph.get(from);
-        if (nextEdges.isEmpty()) return;
-        for (int[] edge : nextEdges) {
-            int to = edge[1];
-            int cost = edge[2];
-            if (costs[to - 1] == -1 || costs[to - 1] > costs[from - 1] + cost) {
-                costs[to - 1] = costs[from - 1] + cost;
-                dfs(graph, costs, to);
-            }
-        }
-    }
-
-    private static int[] initCosts(int n, int k) {
+    private static int[] initCosts(int n) {
         int[] costs = new int[n];
         Arrays.fill(costs, -1);
-        costs[k - 1] = 0;
         return costs;
     }
 
