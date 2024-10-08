@@ -2,7 +2,7 @@ package com.algo.graph.w4_241010;
 
 import java.util.*;
 
-public class LeetCode743 {
+public class LeetCode743_44 {
     public int networkDelayTime(int[][] times, int n, int k) {
         Map<Integer, List<int[]>> graph = makeGraph(n, times);
         int[] costs = initCosts(n, k);

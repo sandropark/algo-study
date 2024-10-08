@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class LeetCode743Test {
-    LeetCode743 sut = new LeetCode743();
+    LeetCode743_44 sut = new LeetCode743_44();
 
     @Test
     void test() throws Exception {
