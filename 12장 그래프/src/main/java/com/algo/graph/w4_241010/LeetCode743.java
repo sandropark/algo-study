@@ -4,60 +4,46 @@ import java.util.*;
 
 public class LeetCode743 {
     public int networkDelayTime(int[][] times, int n, int k) {
-        int[] result = initResultList(n, k);
-        Map<Integer, List<int[]>> graph = makeGraph(times);
-        Queue<int[]> q = new ArrayDeque<>();
+        Map<Integer, List<int[]>> graph = makeGraph(n, times);
+        int[] costs = initCosts(n, k);
+        dfs(graph, costs, graph.get(k), k);
+        return findMax(costs);
+    }
 
-        List<int[]> nodes = graph.get(k);
-        if (nodes != null)
-            q.addAll(nodes);
-
-        while (!q.isEmpty()) {
-            int[] v = q.poll();
-            int dest = v[1];
-            int cost = v[2];
-
-            int pastCost = result[dest];
-            result[dest] = pastCost == -1 ? cost : Math.min(pastCost, cost);
-
-            nodes = graph.get(dest);
-            if (nodes != null && !nodes.isEmpty()) {
-                nodes.forEach(ints -> ints[2] += cost);
-                q.addAll(nodes);
-                nodes.clear();
+    private static void dfs(Map<Integer, List<int[]>> graph, int[] costs, List<int[]> nextEdges, int start) {
+        if (nextEdges == null) return;
+        for (int[] edge : nextEdges) {
+            int end = edge[1];
+            int cost = edge[2];
+            if (costs[end - 1] == -1 || costs[end - 1] > costs[start - 1] + cost) {
+                costs[end - 1] = costs[start - 1] + cost;
+                dfs(graph, costs, graph.get(end), end);
             }
         }
-
-        if (!allVisited(result)) return -1;
-
-        return getResult(result);
     }
 
-    private static int getResult(int[] resultList) {
-        int result = 0;
-        for (int cost : resultList) result = Math.max(result, cost);
-        return result;
+    private static int[] initCosts(int n, int k) {
+        int[] costs = new int[n];
+        Arrays.fill(costs, -1);
+        costs[k - 1] = 0;
+        return costs;
     }
 
-    private static int[] initResultList(int n, int k) {
-        int[] resultList = new int[n + 1];
-        Arrays.fill(resultList, -1);
-        resultList[k] = 0;
-        resultList[0] = 0;
-        return resultList;
+    private static int findMax(int[] costs) {
+        int max = 0;
+        for (int i : costs) {
+            if (i == -1) return -1;
+            max = Math.max(max, i);
+        }
+        return max;
     }
 
-    private boolean allVisited(int[] visited) {
-        for (int i : visited) if (i == -1) return false;
-        return true;
-    }
-
-    private static HashMap<Integer, List<int[]>> makeGraph(int[][] times) {
+    private static HashMap<Integer, List<int[]>> makeGraph(int n, int[][] times) {
         HashMap<Integer, List<int[]>> graph = new HashMap<>();
+        for (int i = 1; i <= n; i++)
+            graph.put(i, new ArrayList<>());
         for (int[] time : times)
-            Optional.ofNullable(graph.get(time[0]))
-                    .ifPresentOrElse(values -> values.add(time),
-                            () -> graph.put(time[0], new ArrayList<>(Arrays.asList(time))));
+            graph.get(time[0]).add(time);
         return graph;
     }
 }
