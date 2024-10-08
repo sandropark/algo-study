@@ -6,18 +6,19 @@ public class LeetCode743 {
     public int networkDelayTime(int[][] times, int n, int k) {
         Map<Integer, List<int[]>> graph = makeGraph(n, times);
         int[] costs = initCosts(n, k);
-        dfs(graph, costs, graph.get(k), k);
+        dfs(graph, costs, k);
         return findMax(costs);
     }
 
-    private static void dfs(Map<Integer, List<int[]>> graph, int[] costs, List<int[]> nextEdges, int start) {
-        if (nextEdges == null) return;
+    private static void dfs(Map<Integer, List<int[]>> graph, int[] costs, int from) {
+        List<int[]> nextEdges = graph.get(from);
+        if (nextEdges.isEmpty()) return;
         for (int[] edge : nextEdges) {
-            int end = edge[1];
+            int to = edge[1];
             int cost = edge[2];
-            if (costs[end - 1] == -1 || costs[end - 1] > costs[start - 1] + cost) {
-                costs[end - 1] = costs[start - 1] + cost;
-                dfs(graph, costs, graph.get(end), end);
+            if (costs[to - 1] == -1 || costs[to - 1] > costs[from - 1] + cost) {
+                costs[to - 1] = costs[from - 1] + cost;
+                dfs(graph, costs, to);
             }
         }
     }
