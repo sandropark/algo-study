@@ -12,13 +12,15 @@ public class LeetCode743_44 {
 
         while (!pq.isEmpty()) {
             int[] node = pq.poll();
-            int from = node[0];
+            int to = node[0];
             int cost = node[1];
-            if (costs[from - 1] == -1) {
-                costs[from - 1] = cost;
-                for (int[] edge : graph.get(from)) {
-                    int newCost = cost + edge[2];
-                    pq.offer(new int[]{edge[1], newCost});
+            if (costs[to - 1] == -1) {
+                costs[to - 1] = cost;
+                if (graph.containsKey(to)) {
+                    for (int[] edge : graph.get(to)) {
+                        int newCost = cost + edge[2];
+                        pq.offer(new int[]{edge[1], newCost});
+                    }
                 }
             }
         }
@@ -42,10 +44,10 @@ public class LeetCode743_44 {
 
     private static HashMap<Integer, List<int[]>> makeGraph(int n, int[][] times) {
         HashMap<Integer, List<int[]>> graph = new HashMap<>();
-        for (int i = 1; i <= n; i++)
-            graph.put(i, new ArrayList<>());
-        for (int[] time : times)
+        for (int[] time : times) {
+            graph.putIfAbsent(time[0], new ArrayList<>());
             graph.get(time[0]).add(time);
+        }
         return graph;
     }
 }
