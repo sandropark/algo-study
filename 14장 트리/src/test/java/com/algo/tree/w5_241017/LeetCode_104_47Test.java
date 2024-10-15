@@ -10,9 +10,9 @@ class LeetCode_104_47Test {
     @Test
     void test() throws Exception {
         // Given
-        LeetCode_104_47.TreeNode root = new LeetCode_104_47.TreeNode(3,
-                new LeetCode_104_47.TreeNode(9),
-                new LeetCode_104_47.TreeNode(20, new LeetCode_104_47.TreeNode(15), new LeetCode_104_47.TreeNode(7)));
+        TreeNode root = new TreeNode(3,
+                new TreeNode(9),
+                new TreeNode(20, new TreeNode(15), new TreeNode(7)));
 
         // When
         int depth = sut.maxDepth(root);
