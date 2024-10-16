@@ -18,17 +18,7 @@ package com.algo.tree.w5_241017;
 
 public class LeetCode_104_47 {
     public int maxDepth(TreeNode root) {
-        return depth(root, 1);  // 시작 노드는 depth 1
-    }
-
-    int depth(TreeNode node, int depth) {
-        if (node == null)
-            return depth - 1;
-
-        // 왼쪽, 오른쪽 내려가면서 depth를 1씩 증가시킨다. 최대 깊이에 도달하면 depth를 반환하기 때문에 max값만 찾으면 된다.
-        return Math.max(
-                depth(node.left, depth + 1),
-                depth(node.right, depth + 1)
-        );
+        if (root == null) return 0;
+        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
     }
 }
