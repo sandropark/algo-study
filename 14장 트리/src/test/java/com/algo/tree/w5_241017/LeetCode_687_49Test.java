@@ -10,12 +10,40 @@ class LeetCode_687_49Test {
     @Test
     void test() throws Exception {
         // Given
-        TreeNode root = new TreeNode(5, new TreeNode(4), new TreeNode(5));
+        TreeNode root = new TreeNode(1, new TreeNode(1), new TreeNode(1));
 
         // When
         int depth = sut.longestUnivaluePath(root);
 
         // Then
-        assertThat(depth).isEqualTo(1);
+        assertThat(depth).isEqualTo(2);
+    }
+
+    @Test
+    void test1() throws Exception {
+        // Given
+        TreeNode root = new TreeNode(5,
+                new TreeNode(4, new TreeNode(1), new TreeNode(1)),
+                new TreeNode(5, null, new TreeNode(5)));
+
+        // When
+        int depth = sut.longestUnivaluePath(root);
+
+        // Then
+        assertThat(depth).isEqualTo(2);
+    }
+
+    @Test
+    void test2() throws Exception {
+        // Given
+        TreeNode root = new TreeNode(1,
+                new TreeNode(4, new TreeNode(4), new TreeNode(4)),
+                new TreeNode(5, null, new TreeNode(5)));
+
+        // When
+        int depth = sut.longestUnivaluePath(root);
+
+        // Then
+        assertThat(depth).isEqualTo(2);
     }
 }
