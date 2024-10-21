@@ -11,11 +11,11 @@ import com.algo.tree.TreeNode;
   */
 public class LeetCode_226_50 {
     public TreeNode invertTree(TreeNode root) {
-        if (root == null) return null;
-
-        swap(root);
-        invertTree(root.left);
-        invertTree(root.right);
+        if (root != null) {
+            swap(root);
+            invertTree(root.left);
+            invertTree(root.right);
+        }
 
         return root;
     }
