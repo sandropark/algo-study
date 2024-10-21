@@ -2,6 +2,8 @@ package com.algo.tree.w5_241017;
 
 // 687. Longest Univalue Path 가장 긴 동일 값의 경로
 
+import com.algo.tree.TreeNode;
+
 /**
  * Constraints:
  * -   The number of nodes in the tree is in the range [0, 10^4].

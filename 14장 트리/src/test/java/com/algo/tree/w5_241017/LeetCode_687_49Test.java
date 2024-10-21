@@ -1,5 +1,6 @@
 package com.algo.tree.w5_241017;
 
+import com.algo.tree.TreeNode;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

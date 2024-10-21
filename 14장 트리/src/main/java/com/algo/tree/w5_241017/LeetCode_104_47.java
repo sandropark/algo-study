@@ -2,6 +2,8 @@ package com.algo.tree.w5_241017;
 
 // 104. Maximum Depth of Binary Tree 이진 트리의 최대 깊이
 
+import com.algo.tree.TreeNode;
+
 /**
  * Constraints:
  * -   The number of nodes in the tree is in the range [0, 10^4].

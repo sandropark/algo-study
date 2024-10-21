@@ -2,6 +2,8 @@ package com.algo.tree.w5_241017;
 
 // 543. Diameter of Binary Tree 이진 트리의 직경
 
+import com.algo.tree.TreeNode;
+
 /**
  * Constraints:
  * -   The number of nodes in the tree is in the range [1, 104].
