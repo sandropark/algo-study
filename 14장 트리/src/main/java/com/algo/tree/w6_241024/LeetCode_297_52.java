@@ -6,6 +6,14 @@ import java.util.LinkedList;
 
 /**
  * 이진 트리의 직렬화 & 역직렬화
+ *
+ * 시간 복잡도
+ *   최대 노드 개수는 10000.
+ *   O(n). 모든 노드를 다 순회하면 된다.
+ *
+ * 공간 복잡도
+ *   큐의 크기는 최대 2를 넘지 않는다.
+ *   문자열의 크기는 최대 2KB(2만 바이트) 정도? 숫자 10000 * 2(','의 수)
  */
 public class LeetCode_297_52 {
     // Encodes a tree to a single string.
