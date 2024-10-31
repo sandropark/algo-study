@@ -9,24 +9,24 @@ Constraints:
 -   1 <= nums.length <= 10^4      ->   최대 10000
 -   -10^4 <= nums[i] <= 10^4
 -   nums is sorted in a strictly increasing order.
+
+시간 복잡도
+- O(N)
+
  */
 public class N_55 {
     public TreeNode sortedArrayToBST(int[] nums) {
-        int size = nums.length;
-        int centerIndex = size / 2;
+        return construct(nums, 0, nums.length - 1);
+    }
 
-        int center = nums[centerIndex];
-        TreeNode root = new TreeNode(center);
+    public TreeNode construct(int[] nums, int startIdx, int endIdx) {
+        if (startIdx > endIdx) return null;
 
-        int leftIndex = centerIndex - 1;
-        int rightIndex = centerIndex + 1;
+        int mid = startIdx + (endIdx - startIdx) / 2;
+        TreeNode node = new TreeNode(nums[mid]);
+        node.left = construct(nums, startIdx, mid - 1);
+        node.right = construct(nums, mid + 1, endIdx);
 
-        if (leftIndex >= 0)
-            root.left = new TreeNode(nums[leftIndex]);
-
-        if (rightIndex < size-1)
-            root.right = new TreeNode(nums[rightIndex]);
-
-        return root;
+        return node;
     }
 }
