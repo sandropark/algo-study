@@ -18,10 +18,14 @@ public class N_61 {
             if (operator.equals("I")) {
                 q.add(operand);
                 Collections.sort(q);
-            } else if (operator.equals("D") && operand == 1 && !q.isEmpty())
-                q.removeLast();
-            else if (operator.equals("D") && operand == -1 && !q.isEmpty())
-                q.removeFirst();
+                continue;
+            }
+
+            if (operator.equals("D") && !q.isEmpty())
+                if (operand == 1)
+                    q.removeLast();
+                else
+                    q.removeFirst();
         }
 
         if (q.isEmpty())
