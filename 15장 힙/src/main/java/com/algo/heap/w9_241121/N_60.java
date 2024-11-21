@@ -1,17 +1,19 @@
 package com.algo.heap.w9_241121;
 
-import com.algo.heap.BinaryHeap;
+import java.util.Collections;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class N_60 {
     public int findKthLargest(int[] nums, int k) {
-        BinaryHeap binaryHeap = new BinaryHeap(true);
+        Queue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
 
         for (int num : nums)
-            binaryHeap.insert(num);
+            pq.add(num);
 
         for (int i = 0; i < k - 1; i++)
-            binaryHeap.pop();
+            pq.poll();
 
-        return binaryHeap.elems.get(1);
+        return pq.poll();
     }
 }
