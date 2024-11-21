@@ -4,10 +4,10 @@ import com.algo.tree.TreeNode;
 
 /**
  * 두 이진 트리의 병합
- *
+ * <p>
  * 시간복잡도
- *   각 트리 별로 최대 개수는 2000개다.
- *   최대 2000개의 노드만 탐색하면 되기 때문에 O(n)이다.
+ * 각 트리 별로 최대 개수는 2000개다.
+ * 최대 2000개의 노드만 탐색하면 되기 때문에 O(n)이다.
  */
 public class LeetCode_617_51 {
     public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {

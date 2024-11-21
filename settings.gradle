@@ -2,4 +2,5 @@ rootProject.name = 'algo-study'
 
 include ':12장 그래프'
 include ':14장 트리'
+include ':15장 힙'
 include ':work'
