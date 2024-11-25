@@ -4,19 +4,28 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Trie {
-    private Map<Character, Map> map;
+    private final Map<Character, Map> map;
+
     public Trie() {
         map = new HashMap<>();
     }
 
     public void insert(String word) {
-        insert(word, 0, map);
+        insert(map, word, 0);
     }
 
-    private void insert(String word, int idx, Map<Character, Map> map) {
-        if (idx < word.length()) {
+    private void insert(Map<Character, Map> map, String word, int idx) {
+        int length = word.length();
+
+        if (idx == length) {
+            map.putIfAbsent('\\', null);
+            return;
+        }
+
+        if (idx < length) {
             char c = word.charAt(idx);
-            insert(word, ++idx, map.putIfAbsent(c, Map.of()));
+            map.putIfAbsent(c, new HashMap());
+            insert(map.get(c), word, ++idx);
         }
     }
 
@@ -25,20 +34,20 @@ public class Trie {
     }
 
     private boolean search(Map<Character, Map> map, String prefix, int idx) {
-        if (idx == prefix.length() && map == null) return true;
+        if (map == null) return false;
+        if (idx == prefix.length())
+            return map.containsKey('\\');
         char c = prefix.charAt(idx);
         return search(map.get(c), prefix, ++idx);
     }
-
-
 
     public boolean startsWith(String prefix) {
         return startsWith(map, prefix, 0);
     }
 
     private boolean startsWith(Map<Character, Map> map, String prefix, int idx) {
-        if (idx == prefix.length()) return true;
         if (map == null) return false;
+        if (idx == prefix.length()) return true;
         char c = prefix.charAt(idx);
         return startsWith(map.get(c), prefix, ++idx);
     }
