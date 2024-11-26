@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class TrieTest {
-    Trie sut = new Trie();
+class M_62Test {
+    M_62 sut = new M_62();
 
     @Test
     void test() throws Exception {
