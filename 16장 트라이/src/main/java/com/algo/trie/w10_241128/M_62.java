@@ -1,33 +1,38 @@
 package com.algo.trie.w10_241128;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class M_62 {
-    private final TrieNode root = new TrieNode();
+    private final Map<Character, Map> map = new HashMap<>();
 
     public M_62() {
     }
 
     public void insert(String word) {
-        TrieNode cur = root;
-        for (char c : word.toCharArray())
-            cur = cur.putIfAbsent(c);
-        cur.word();
-    }
-
-    public boolean startsWith(String prefix) {
-        return findNode(prefix) != null;
+        Map<Character, Map> curMap = map;
+        for (char c : word.toCharArray()) {
+            curMap.putIfAbsent(c, new HashMap<>());
+            curMap = curMap.get(c);
+        }
+        curMap.putIfAbsent('\\', null);
     }
 
     public boolean search(String word) {
-        TrieNode node = findNode(word);
-        return node != null && node.isWord();
+        Map<Character, Map> curMap = map;
+        for (char c : word.toCharArray()) {
+            curMap = curMap.get(c);
+            if (curMap == null) return false;
+        }
+        return curMap.containsKey('\\');
     }
 
-    private TrieNode findNode(String target) {
-        TrieNode cur = root;
-        for (char c : target.toCharArray()) {
-            cur = cur.get(c);
-            if (cur == null) return null;
+    public boolean startsWith(String prefix) {
+        Map<Character, Map> curMap = map;
+        for (char c : prefix.toCharArray()) {
+            curMap = curMap.get(c);
+            if (curMap == null) return false;
         }
-        return cur;
+        return true;
     }
 }
