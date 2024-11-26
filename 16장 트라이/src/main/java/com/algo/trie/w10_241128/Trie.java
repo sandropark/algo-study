@@ -1,54 +1,34 @@
 package com.algo.trie.w10_241128;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Trie {
-    private final Map<Character, Map> map;
+    private final TrieNode root;
 
     public Trie() {
-        map = new HashMap<>();
+        root = new TrieNode();
     }
 
     public void insert(String word) {
-        insert(map, word, 0);
-    }
-
-    private void insert(Map<Character, Map> map, String word, int idx) {
-        int length = word.length();
-
-        if (idx == length) {
-            map.putIfAbsent('\\', null);
-            return;
-        }
-
-        if (idx < length) {
-            char c = word.charAt(idx);
-            map.putIfAbsent(c, new HashMap());
-            insert(map.get(c), word, ++idx);
-        }
-    }
-
-    public boolean search(String word) {
-        return search(map, word, 0);
-    }
-
-    private boolean search(Map<Character, Map> map, String prefix, int idx) {
-        if (map == null) return false;
-        if (idx == prefix.length())
-            return map.containsKey('\\');
-        char c = prefix.charAt(idx);
-        return search(map.get(c), prefix, ++idx);
+        TrieNode cur = root;
+        for (char c : word.toCharArray())
+            cur = cur.putIfAbsent(c);
+        cur.word();
     }
 
     public boolean startsWith(String prefix) {
-        return startsWith(map, prefix, 0);
+        TrieNode cur = root;
+        for (char c : prefix.toCharArray()) {
+            cur = cur.get(c);
+            if (cur == null) return false;
+        }
+        return true;
     }
 
-    private boolean startsWith(Map<Character, Map> map, String prefix, int idx) {
-        if (map == null) return false;
-        if (idx == prefix.length()) return true;
-        char c = prefix.charAt(idx);
-        return startsWith(map.get(c), prefix, ++idx);
+    public boolean search(String word) {
+        TrieNode cur = root;
+        for (char c : word.toCharArray()) {
+            cur = cur.get(c);
+            if (cur == null) return false;
+        }
+        return cur.isWord();
     }
 }
